@@ -3,13 +3,12 @@ const serverNameInput = document.getElementById("createServerText");
 const serverImageInput = document.getElementById("createServerImage");
 
 form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent page reload / URL change
+    e.preventDefault();
 
     const serverName = serverNameInput.value.trim();
     const image = serverImageInput.value.trim();
     if (!serverName || !image) return;
 
-    // Send the data via POST to your PHP file
     fetch('lib/createServerLib.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

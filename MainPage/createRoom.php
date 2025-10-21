@@ -36,12 +36,15 @@ include("checkLogin.php");
             <div class="left">
             </div>
             <div class="center">
-                <h1>Create server</h1>
-                <form class="createServer" id="createServerForm">
-                    <label for="serverName">Server name:</label><br>
-                    <input type="text" class="createServerText" id="createServerText" placeholder="Server name" autocomplete="off"><br>
-                    <label for="serverImage">Server image path: (serverImages/logo.png nebo serverImages/logo2.png)</label><br>
-                    <input type="text" class="createServerText" id="createServerImage" placeholder="Server image path" autocomplete="off"><br>
+                <h1>Create room</h1>
+                <form class="createRoom" id="createRoomForm">
+                    <label for="roomName">Server room:</label><br><br>
+                    <input type="text" class="createRoomText" id="createRoomText" placeholder="Room name" autocomplete="off" minlength="3"><br><br>
+                    <label for="roomType">Room type:</label><br><br>
+                    <select class="createRoomType" id="createRoomType">
+                        <option value="normal">Normal</option>
+                        <option value="voice">Voice</option>
+                    </select><br><br>
                     <button type="submit">Send</button>
                 </form>
             </div>
@@ -58,4 +61,4 @@ include("checkLogin.php");
 </body>
 
 </html>
-<script src="lib/createServer.js"></script>;
+<script src="lib/createRoom.js"></script>;

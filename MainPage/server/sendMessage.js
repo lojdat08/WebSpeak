@@ -1,6 +1,13 @@
 const form = document.getElementById("sendMessageForm");
 const input = document.getElementById("textMessageForm");
 
+const params = new URLSearchParams(window.location.search);
+let roomId = params.get("roomId");
+if(roomId == null)
+{
+    form.style.display = "none";
+}
+
 form.addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent page reload / URL change
 
@@ -9,23 +16,23 @@ form.addEventListener('submit', function(e) {
 
     const params = new URLSearchParams(window.location.search);
     let roomId = params.get("roomId");
+    let serverId = params.get("serverId");
 
-    if(roomId == null)
+    if(roomId == null || serverId == null)
     {
         window.alert("You must be in a room to write messages.");
         return;
     }
 
-    // Send the data via POST to your PHP file
     fetch('lib/writeMessage.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'message=' + encodeURIComponent(text) + '&roomId=' + encodeURIComponent(roomId)
+        body: 'message=' + encodeURIComponent(text) + '&roomId=' + encodeURIComponent(roomId) + '&serverId=' + encodeURIComponent(serverId)
     })
     .then(response => response.text())
     .then(data => {
         console.log('PHP response:', data); // logs whatever PHP returns
-        input.value = ''; // clear input after sending
+        input.value = '';
         location.reload();
     })
     .catch(error => console.error('Error sending data:', error));

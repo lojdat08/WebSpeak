@@ -1,5 +1,5 @@
 <?php
-function GetUserIdFromName($username, $conn): int
+function GetUserIdFromName(string $username, $conn): int
 {
     try {
         $stmt = $conn->prepare("SELECT * 

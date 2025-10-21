@@ -4,7 +4,7 @@ if (isset($_POST['serverName']) && isset($_POST['serverImg'])) {
     $serverImg = $_POST['serverImg'];
     $username = $_COOKIE["username"];
     include("../../database.php");
-    include("getUserid.php");
+    include_once("getUserid.php");
     $userId = GetUserIdFromName($username, $conn);
     try {
         $stmt = $conn->prepare("INSERT INTO `servers`

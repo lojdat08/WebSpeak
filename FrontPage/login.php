@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $stmt = $conn->prepare("UPDATE users
                                             SET token = ?, loginDate = NOW()
                                             WHERE user = ?");
-                        $stmt->bind_param("ss", $token, $username);
+                        $stmt->bind_param("ss", htmlspecialchars($token), htmlspecialchars($username));
                         $stmt->execute();
                         $stmt->close();
                         $expireTime = time() + (60 * 15);

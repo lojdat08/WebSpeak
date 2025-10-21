@@ -1,6 +1,7 @@
 <?php
-if (isset($_GET['roomId'])) {
+if (isset($_GET['roomId']) && isset($_GET['serverId'])) {
     $roomId = $_GET['roomId'];
+    $serverId = $_GET['serverId'];
     include("../database.php");
     try {
         $stmt = $conn->prepare("SELECT * 
@@ -15,13 +16,21 @@ if (isset($_GET['roomId'])) {
         echo "Error when trying get room messages";
     }
     if (mysqli_num_rows($result) > 0) {
-        include("lib/getUsername.php");
-        while ($row = mysqli_fetch_assoc($result)) {
-            $authorId = $row["authorId"];
-            $message = $row["message"];
-            $createDate = $row["createDate"];
-            $authorUsername = GetUsernameFromId($authorId, $conn);
-            echo "<p>Author: $authorUsername - $message - [$createDate]</p>\n";
+        include_once("lib/checkPermisions.php");
+        $username = $_COOKIE['username'];
+        if (CheckUserInServerName($username, $serverId, $conn)) {
+            include_once("lib/getUsername.php");
+            while ($row = mysqli_fetch_assoc($result)) {
+                $authorId = $row["authorId"];
+                $message = $row["message"];
+                $createDate = $row["createDate"];
+                $authorUsername = GetUsernameFromId($authorId, $conn);
+                echo "<p>Author: $authorUsername - $message - [$createDate]</p>\n";
+            }
+        }
+        else
+        {
+            header("Location: index.php");
         }
     }
     if ($conn) {

@@ -40,15 +40,15 @@ if (mysqli_num_rows($usernameResult) > 0) {
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
                 $imgSrc = $row["img"];
+                $serverId = $serverIdRow["serverId"];
                 $serverName = $row["serverName"];
-                echo "<a href = 'index.php?serverId=" . $serverIdRow["serverId"] . "'>";
+                echo "<a href = 'index.php?serverId=" . $serverId . "'>";
                 echo "<img class='serverButton' src='$imgSrc' alt='$serverName'>";
                 echo "</a>\n";
             }
         }
     }
 }
-if($conn)
-{
+if ($conn) {
     mysqli_close($conn);
 }
