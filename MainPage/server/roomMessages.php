@@ -7,7 +7,7 @@ if (isset($_GET['roomId']) && isset($_GET['serverId'])) {
         $stmt = $conn->prepare("SELECT * 
                             FROM roommessages
                             WHERE roomId = ?
-                            ORDER BY createDate DESC"); // get rooms from serverId
+                            ORDER BY createDate ASC"); // get rooms from serverId
         $stmt->bind_param("s", $roomId);
         $stmt->execute();
         $result = $stmt->get_result();

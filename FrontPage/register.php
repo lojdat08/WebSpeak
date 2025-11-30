@@ -19,7 +19,7 @@ include("../database.php");
     <h1>Register</h1>
     <form action="register.php" method="post">
         Username: <br>
-        <input type="text" name="username"><br>
+        <input type="text" name="username" autofocus><br>
         Email: <br>
         <input type="text" name="email"><br>
         Password: <br>
@@ -32,7 +32,7 @@ include("../database.php");
 
 </html>
 <?php
-include("randomValues.php");
+include("../MainPage/lib/randomValues.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $email = $_POST["email"];
@@ -56,8 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
             $result = $stmt->get_result();
             $stmt->close();
-            if(mysqli_num_rows($result) > 0)
-            {
+            if (mysqli_num_rows($result) > 0) {
                 $canRegister = false;
                 echo "Username is already taken.<br>";
             }
@@ -73,8 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
             $result = $stmt->get_result();
             $stmt->close();
-            if(mysqli_num_rows($result) > 0)
-            {
+            if (mysqli_num_rows($result) > 0) {
                 $canRegister = false;
                 echo "This email is in use.<br>";
             }
@@ -82,14 +80,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Coudn't check register.<br>";
         }
 
-       if($canRegister) {
+        if ($canRegister) {
             $hash = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO users (user, password, email)
-                VALUES ('$username', '$hash', '$email')";
             try {
-                mysqli_query($conn, $sql);
-                $token = RandomString(60);
+                $stmt = $conn->prepare("INSERT INTO users 
+                                        (user, password, email)
+                                        VALUES (?, ?, ?)");
+                $stmt->bind_param("sss", $username, $hash, $email);
+                $stmt->execute();
+                $stmt->close();
                 try {
+                    $token = RandomString(60);
                     $stmt = $conn->prepare("UPDATE users
                                             SET token = ?, loginDate = NOW()
                                             WHERE user = ?");
@@ -99,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } catch (mysqli_sql_exception) {
                     echo "Coudn't set token";
                 }
-                $expireTime = time() + (60 * 15);
+                $expireTime = time() + $config["cookies_expire"];
                 setcookie("username", $username, $expireTime, "/");
                 setcookie("token", $token, $expireTime, "/");
                 header("Location: ../MainPage/");
@@ -109,8 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-if($conn)
-{
+if ($conn) {
     mysqli_close($conn);
 }
 ?>

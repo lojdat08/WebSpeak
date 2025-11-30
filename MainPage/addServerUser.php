@@ -37,31 +37,13 @@ include("checkLogin.php");
                 include("createServerButton.html");
                 ?>
             </div>
-            <div class="left">
-                <h4>Rooms</h4>
-                <?php
-                include("server/rooms.php");
-                ?>
-            </div>
             <div class="center">
-                <h1>Create room</h1>
-                <form class="createRoom" id="createRoomForm">
-                    <label for="roomName">Server room:</label><br><br>
-                    <input type="text" class="createRoomText" id="createRoomText" placeholder="Room name" autocomplete="off" minlength="3"><br><br>
-                    <label for="roomType">Room type:</label><br><br>
-                    <select class="createRoomType" id="createRoomType">
-                        <option value="normal">Normal</option>
-                        <!--<option value="voice">Voice</option>-->
-                    </select><br><br>
-                    <button type="submit">Send</button>
+                <h2>Adding user</h2>
+                <form class="addUserForm" id="addUserForm">
+                    <label for="addUsername">username of new user:<br>
+                        <input type="text" class="addUsername" id="addUsername" placeholder="Username" name="addUsername" autocomplete="off" required><br><br>
+                        <button type="submit">Add</button>
                 </form>
-            </div>
-            <div class="right">
-                <h3>users</h3>
-                <?php
-                include("server/users.php");
-                include("addServerUserButton.html");
-                ?>
             </div>
         </div>
         <footer>
@@ -73,5 +55,4 @@ include("checkLogin.php");
 </body>
 
 </html>
-<script src="server/changeRooms.js"></script>
-<script src="lib/createRoom.js"></script>;
+<script src="lib/addUserToServer.js"></script>

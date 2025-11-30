@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['message']) && isset($_POST['roomId']) && isset($_POST['serverId'])) {
+if (isset($_POST['message']) && isset($_POST['roomId']) && isset($_POST['serverId']) && isset($_COOKIE["username"])) {
     $msg = $_POST['message'];
     $roomId = $_POST['roomId'];
     $serverId = $_POST['serverId'];

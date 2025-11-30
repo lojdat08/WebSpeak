@@ -6,7 +6,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* nadpis vlevo, obrĂˇzek vpravo */
+  justify-content: space-between;
   margin-left: 1vw;
 }
 
@@ -137,4 +137,45 @@ footer {
   padding-left: 0.5%;
   width: 20%;
   background-color: #cde6cd;
+}
+
+.userDiv {
+  margin-bottom: 3.5%;
+  margin-right: 5%;
+  background-color: #90c790;
+  border-radius: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5vw;
+}
+
+.userProfileImg {
+  width: 3.5vw;
+  height: 3.5vw;
+  border: none;
+  border-radius: 35%;
+}
+
+.userName {
+  font-size: 1.5vw;
+  margin-left: 1vw;
+}
+
+.profileSettingsButton {
+  width: 8vw;
+  height: 3vw;
+  background-color: #90c790;
+  border-radius: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5vw;
+}
+
+.profileSettingsImg {
+  width: 3.5vw;
+  height: 3.5vw;
+  border: none;
+  border-radius: 5%;
 }

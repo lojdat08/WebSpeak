@@ -38,30 +38,28 @@ include("checkLogin.php");
                 ?>
             </div>
             <div class="left">
-                <h4>Rooms</h4>
+                <h4>Friends</h4>
                 <?php
-                include("server/rooms.php");
+                include("server/friends.php");
+                include("addFriendButton.html");
                 ?>
             </div>
             <div class="center">
-                <h1>Create room</h1>
-                <form class="createRoom" id="createRoomForm">
-                    <label for="roomName">Server room:</label><br><br>
-                    <input type="text" class="createRoomText" id="createRoomText" placeholder="Room name" autocomplete="off" minlength="3"><br><br>
-                    <label for="roomType">Room type:</label><br><br>
-                    <select class="createRoomType" id="createRoomType">
-                        <option value="normal">Normal</option>
-                        <!--<option value="voice">Voice</option>-->
-                    </select><br><br>
+                <h1>Messages</h1>
+                <div class="messages">
+                    <?php
+                    include("server/friendMessages.php");
+                    ?>
+                </div>
+                <form class="writeMessage" id="sendMessageForm">
+                    <input type="text" id="textMessageForm" placeholder="Type your message..." autocomplete="off" />
                     <button type="submit">Send</button>
                 </form>
             </div>
             <div class="right">
+                <br>
+                <button id="removeFriendButton">Remove friend</button>
                 <h3>users</h3>
-                <?php
-                include("server/users.php");
-                include("addServerUserButton.html");
-                ?>
             </div>
         </div>
         <footer>
@@ -73,5 +71,6 @@ include("checkLogin.php");
 </body>
 
 </html>
-<script src="server/changeRooms.js"></script>
-<script src="lib/createRoom.js"></script>;
+<script src="server/removeFriend.js"></script>
+<script src="server/sendFriendMessage.js"></script>
+<script src="server/changeFriends.js"></script>

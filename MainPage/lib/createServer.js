@@ -6,13 +6,16 @@ form.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const serverName = serverNameInput.value.trim();
-    const image = serverImageInput.value.trim();
-    if (!serverName || !image) return;
+    const imageFile = serverImageInput.files[0];
+    if (!serverName || !imageFile) return;
+
+    const formData = new FormData();
+    formData.append('serverName', serverName);
+    formData.append('serverImage', imageFile)
 
     fetch('lib/createServerLib.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'serverName=' + encodeURIComponent(serverName) + '&serverImg=' + encodeURIComponent(image)
+        body: formData
     })
     .then(response => response.text())
     .then(data => {

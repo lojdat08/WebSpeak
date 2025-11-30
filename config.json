@@ -1,0 +1,8 @@
+{
+    "serverImages_dir": "C:/xampp/htdocs/website/uploads/",
+	"serverImages_dir_relative": "../../uploads/",
+    "profileImages_dir": "C:/xampp/htdocs/website/profiles/",
+    "profileImages_dir_relative": "../../profiles/",
+    "cookies_expire": 7200,
+    "remove_messages_after_friend_removal": false
+}

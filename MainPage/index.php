@@ -16,6 +16,9 @@ include("checkLogin.php");
     <div class="page-wrapper">
         <header>
             <div class="header-content">
+                <?php
+                include("profileSettingsButton.php");
+                ?>
                 <div class="buttons">
                     <form action="logout.php" method="post">
                         <button type="submit" class="headerButton" name="logout">Odhlásit se</button>
@@ -25,13 +28,14 @@ include("checkLogin.php");
         </header>
         <div class="main">
             <div class="servers">
+                <?php
+                include("friendsIndexButton.html");
+                ?>
                 <h4>servers</h4>
                 <?php
                 include("addServers.php");
+                include("createServerButton.html");
                 ?>
-                <a href="createServer.php">
-                    <img class="serverButton">
-                </a>
             </div>
             <div class="left">
                 <h4>Rooms</h4>
@@ -47,18 +51,17 @@ include("checkLogin.php");
                     ?>
                 </div>
                 <form class="writeMessage" id="sendMessageForm">
-                    <input type="text" id="textMessageForm" placeholder="Type your message..." autocomplete="off"/>
+                    <input type="text" id="textMessageForm" placeholder="Type your message..." autocomplete="off" />
                     <button type="submit">Send</button>
                 </form>
             </div>
             <div class="right">
+                <br>
+                <button id="leaveServerButton">Leave server</button>
                 <h3>users</h3>
-                <p>user</p>
-                <p>user</p>
-                <p>user</p>
-                <p style="font-size: 8px" color="shadow">PS: nefunguje</p>
                 <?php
                 include("server/users.php");
+                include("addServerUserButton.html");
                 ?>
             </div>
         </div>
@@ -71,5 +74,7 @@ include("checkLogin.php");
 </body>
 
 </html>
+<script src="server/leaveServer.js?v=10"></script>
 <script src="server/changeRooms.js"></script>
-<script src="server/sendMessage.js"></script>;
+<script src="server/sendMessage.js"></script>
+<script src="server/hideAddUser.js"></script>

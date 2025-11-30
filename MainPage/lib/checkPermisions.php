@@ -15,7 +15,7 @@ function CheckUserInServer(int $userId, int $serverId, $conn): bool
         try {
             $stmt = $conn->prepare("SELECT * 
                             FROM usersinserver
-                            WHERE userid = ? AND serverId = ?");
+                            WHERE userId = ? AND serverId = ?");
             $stmt->bind_param("ii", $userId, $serverId);
             $stmt->execute();
             $result = $stmt->get_result();

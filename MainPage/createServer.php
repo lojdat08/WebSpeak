@@ -16,6 +16,9 @@ include("checkLogin.php");
     <div class="page-wrapper">
         <header>
             <div class="header-content">
+                <?php
+                include("profileSettingsButton.php");
+                ?>
                 <div class="buttons">
                     <form action="logout.php" method="post">
                         <button type="submit" class="headerButton" name="logout">Odhlásit se</button>
@@ -25,28 +28,29 @@ include("checkLogin.php");
         </header>
         <div class="main">
             <div class="servers">
+                <?php
+                include("friendsIndexButton.html");
+                ?>
                 <h4>servers</h4>
                 <?php
                 include("addServers.php");
+                include("createServerButton.html");
                 ?>
-                <a href="createServer.php">
-                    <img class="serverButton">
-                </a>
             </div>
             <div class="left">
             </div>
             <div class="center">
                 <h1>Create server</h1>
-                <form class="createServer" id="createServerForm">
+                <form action="lib/createRoomLib.php" class="createServer" id="createServerForm" enctype="multipart/form-data" method="post">
                     <label for="serverName">Server name:</label><br>
-                    <input type="text" class="createServerText" id="createServerText" placeholder="Server name" autocomplete="off"><br>
-                    <label for="serverImage">Server image path: (serverImages/logo.png nebo serverImages/logo2.png)</label><br>
-                    <input type="text" class="createServerText" id="createServerImage" placeholder="Server image path" autocomplete="off"><br>
+                    <input type="text" class="createServerText" id="createServerText" placeholder="Server name" name="serverName" autocomplete="off"><br><br>
+                    <label for="serverImage">Server image:<br>
+                    <input type="file" class="createServerText" id="createServerImage" placeholder="Server image" name="serverImage" accept=".jpeg, .png, .gif" autocomplete="off" required><br><br>
                     <button type="submit">Send</button>
                 </form>
             </div>
             <div class="right">
-                <h3>users</h3>
+                <h3></h3>
             </div>
         </div>
         <footer>

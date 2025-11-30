@@ -5,7 +5,7 @@ function GetUserIdFromName(string $username, $conn): int
         $stmt = $conn->prepare("SELECT * 
                             FROM users
                             WHERE user = ?"); // get user from id
-        $stmt->bind_param("i", $username);
+        $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
