@@ -14,7 +14,7 @@
         <header>
             <div class="header-content">
                 <img src="../logo.png" width=60vw height=60vh>
-                <h1>Logo</h1>
+                <h1>Webspeak</h1>
                 <div class="buttons">
                     <a href="login.php">
                         <button class="headerButton" name="loginForm">Přihlášení</button>
@@ -26,14 +26,9 @@
             </div>
         </header>
         <div class="main">
-            <h2>WebSpeak</h2>
-            <p>Popis</p>
+            <h2>Úvod</h2>
+            <p>Webspeak je komunikační platforma pro všechny co chtějí ty stare nepřeplácané komunikační aplikace.</p>
         </div>
-        <footer>
-            <div class="footerContent">
-                <p>text</p>
-            </div>
-        </footer>
     </div>
 </body>
 
