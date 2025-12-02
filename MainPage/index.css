@@ -1,5 +1,27 @@
-.buttons {
-  margin-left: auto;
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #1b1b1b;
+  color: #ffffff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  position: relative;
+  background-color: #292929;
+  padding: 10px 20px;
+  color: #ffffff;
 }
 
 .header-content {
@@ -10,37 +32,37 @@
   margin-left: 1vw;
 }
 
-header {
-  position: relative;
-  background-color: #0066ff;
-  padding: 10px 20px;
-  color: white;
+.header-content img {
+  border-radius: 50%;
 }
+
 
 .headerButton {
   width: 10vw;
   height: 5vw;
   border: none;
   border-radius: 1vw;
-  background-color: #003d99;
-  color: white;
+  background-color: #fea319;
+  color: #1b1b1b;
   font-size: 1.3vw;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
 }
+
+.headerButton:hover {
+  background-color: #ffb93f;
+}
+
+.buttons {
+  margin-left: auto;
+}
+
 
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .main {
@@ -50,32 +72,12 @@ body {
   height: 100%;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-footer {
-  height: 4vw;
-  color: white;
-  font-size: 1.2vw;
-  background-color: #0066ff;
-  padding: 10px 20px;
-  text-align: center;
-  margin-top: 1vw;
-}
-
-.header-content img {
-  border-radius: 50%;
-}
 
 .servers {
   padding-left: 0.5%;
   padding-right: 0.5%;
   width: 5%;
-  background-color: #a9c1e6;
+  background-color: #292929;
 }
 
 .serverButton,
@@ -85,27 +87,39 @@ footer {
   height: 5vw;
   border: none;
   border-radius: 1.5vw;
-  background-color: #003d99;
-  color: white;
+  background-color: #fea319;
+  color: #1b1b1b;
   font-size: 1.3vw;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+.serverButton:hover,
+.serverButtonText:hover {
+  background-color: #ffb93f;
 }
 
 .serverButtonText {
   text-align: center;
-  text-justify: center;
 }
+
 
 .room {
   margin-bottom: 3.5%;
   margin-right: 5%;
-  background-color: #059cd8;
+  background-color: #292929;
   border-radius: 1vw;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 0.5vw;
+  transition: 0.2s ease;
+}
+
+.room:hover {
+  background-color: #323232;
 }
 
 .roomImage {
@@ -121,33 +135,40 @@ footer {
   font-size: 1.3vw;
 }
 
+
 .left {
   padding-left: 0.5%;
   width: 15%;
-  background-color: #d0e6f6;
+  background-color: #292929;
 }
 
 .center {
   padding-left: 0.5%;
   flex: 1;
-  background-color: #f0f0f0;
+  background-color: #1b1b1b;
 }
 
 .right {
   padding-left: 0.5%;
   width: 20%;
-  background-color: #cde6cd;
+  background-color: #292929;
 }
+
 
 .userDiv {
   margin-bottom: 3.5%;
   margin-right: 5%;
-  background-color: #90c790;
+  background-color: #292929;
   border-radius: 1vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 0.5vw;
+  transition: 0.2s ease;
+}
+
+.userDiv:hover {
+  background-color: #323232;
 }
 
 .userProfileImg {
@@ -160,17 +181,25 @@ footer {
 .userName {
   font-size: 1.5vw;
   margin-left: 1vw;
+  color: #ffffff;
 }
+
 
 .profileSettingsButton {
   width: 8vw;
   height: 3vw;
-  background-color: #90c790;
+  background-color: #fea319;
   border-radius: 1vw;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.5vw;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.profileSettingsButton:hover {
+  background-color: #ffb93f;
 }
 
 .profileSettingsImg {

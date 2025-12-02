@@ -65,11 +65,6 @@ include("checkLogin.php");
                 ?>
             </div>
         </div>
-        <footer>
-            <div class="footerContent">
-                <p>text</p>
-            </div>
-        </footer>
     </div>
 </body>
 
