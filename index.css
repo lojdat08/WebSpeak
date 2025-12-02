@@ -1,0 +1,81 @@
+.profile-menu, .buttons {
+    position: relative;
+    display: inline-block;
+}
+
+
+body {
+    font-family: sans-serif;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+header {
+    background-color: #292929;
+    padding: 10px 20px;
+    color: #ffffff;
+}
+
+.header-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 1vw;
+}
+
+.header-content img {
+    border-radius: 50%;
+}
+
+
+.headerButton {
+    width: 10vw;
+    height: 5vw;
+    margin-right: 1vw;
+    border: none;
+    border-radius: 1vw;
+    background-color: #fea319;
+    color: #1b1b1b;
+    font-size: 1.3vw;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.headerButton:hover {
+    background-color: #ffb93f;
+}
+
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
+    margin-left: 2vw;
+    color: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+    .main, .page-wrapper {
+        position: relative;
+    }
+
+    .headerButton {
+        width: 25vw;
+        height: 10vw;
+        font-size: 4vw;
+    }
+}
