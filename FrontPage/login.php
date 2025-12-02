@@ -9,6 +9,106 @@ include("../database.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebSpeak</title>
     <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* DARK THEME COLORS */
+        :root {
+            --bg: #1b1b1b;
+            --surface: #292929;
+            --accent: #fea319;
+            --text: #ffffff;
+            --muted: #808080;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a button {
+            background-color: var(--accent);
+            color: #1b1b1b;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        a button:hover {
+            background-color: #ffb93f;
+        }
+
+        .login-box {
+            background-color: var(--surface);
+            padding: 2.5rem 3rem;
+            border-radius: 14px;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 1.8rem;
+            color: var(--text);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.4rem;
+            margin-bottom: 1rem;
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 6px rgba(254, 163, 25, 0.4);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 0.2rem;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 0.9rem;
+            background-color: var(--accent);
+            border: none;
+            border-radius: 8px;
+            color: #1b1b1b;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.05rem;
+            transition: 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ffb93f;
+        }
+    </style>
 </head>
 
 <body>
